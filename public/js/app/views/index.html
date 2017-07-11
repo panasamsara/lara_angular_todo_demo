@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <a href="#/create" class="btn btn-default" title="添加"><i
+                    class="glyphicon glyphicon-plus"></i> 添加</a>
+        </div>
+    </div>
+    <table class="table table-condensed table-striped table-hover">
+        <thead>
+        <tr>
+            <th>任务</th>
+            <th>内容</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="task in tasks track by task.id">
+            <td><a href="#/{{task.id}}">{{ task.title }}</a></td>
+            <td><a href="#/{{task.id}}">{{ task.content }}</a></td>
+            <td>
+                <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                    <a href="#/{{task.id}}/edit" class="btn btn-default" title="编辑">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                    </a>
+                    <button type="button" class="btn btn-default" title="删除" ng-click="destroy($index)">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav>
+        <ul class="pager">
+            <li><a href="javascript:void(0)" ng-click="setPage(page.currentPage - 1)" ng-show="page.currentPage != 1">上一页</a></li>
+            <li><a href="javascript:void(0)" ng-click="setPage(page.currentPage + 1)" ng-show="page.currentPage != page.lastPage">下一页</a></li>
+        </ul>
+    </nav>
+</div>

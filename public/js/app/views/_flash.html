@@ -1,0 +1,12 @@
+<div class="container" role="alert" ng-show="flashes.length > 0">
+    <div class="alert alert-success alert-dismissible fade in" role="alert" ng-if="flashes.length > 0 &&  flashes[0].type === 'success'">
+        <button type="button" class="close" aria-label="Close" ng-click="flashes[0].close()"><span
+                aria-hidden="true">×</span></button>
+        <strong>{{ flashes[0].msg }}</strong>
+    </div>
+    <div class="alert alert-danger alert-dismissible fade in" role="alert" ng-if="flashes.length > 0 &&  flashes[0].type !== 'success'">
+        <button type="button" class="close" aria-label="Close" ng-click="flashes[0].close()"><span
+                aria-hidden="true">×</span></button>
+        <p ng-repeat="error in flashes">{{ error.msg }}</p>
+    </div>
+</div>
